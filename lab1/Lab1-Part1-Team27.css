@@ -1,0 +1,11 @@
+.dropdownLeft {
+    float: left;
+}
+
+.dropdownRight {
+    float: right;
+}
+
+table, td {
+    border: 2px solid;
+}
