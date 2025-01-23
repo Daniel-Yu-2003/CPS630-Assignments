@@ -1,17 +1,142 @@
-.dropdownLeft {
-    float: left;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-.dropdownRight {
-    float: right;
-}
 
-table, td, th {
-    border: 2px solid;
-}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
 
-img {
-    max-width: 20%;
-    max-height: 20%;
-    
-}
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .top-controls select,
+  .top-controls input[type="text"] {
+    font-size: 14px;
+    padding: 5px;
+    margin: 0 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  .device-img {
+    width: 80px; 
+    height: auto;
+  }
+
+  .action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .action-buttons button {
+    margin: 0 2px;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .action-buttons button img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  @media (max-width: 768px) {
+    /* Medium Screen */
+    .top-controls {
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .top-controls select,
+    .top-controls input[type="text"] {
+      max-width: 100%;
+      margin: 5px 0;
+    }
+
+    table {
+      overflow-x:auto;
+      white-space: nowrap;
+    }
+
+    .device-img {
+      width: 60px;
+    }
+
+    th, td {
+      font-size: 12px;
+    }
+
+    .action-buttons button {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Small screens */
+    h1 {
+      font-size: 18px;
+    }
+
+    .top-controls {
+      flex-direction: column;
+    }
+
+    .top-controls select,
+    .top-controls input[type="text"] {
+      max-width: 100%;
+    }
+
+    .device-img {
+      width: 50px;
+    }
+
+    th, td {
+      font-size: 10px;
+      padding: 6px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      
+    }
+
+
+    .action-buttons button {
+      font-size: 8px;
+      padding: 4px;
+    }
+  }
