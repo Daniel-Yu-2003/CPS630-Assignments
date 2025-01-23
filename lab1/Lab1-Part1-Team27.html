@@ -1,99 +1,104 @@
-<html>
-    <head>
-        <title>Electronics-Center</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electronics-Center</title>
+  <link rel="stylesheet" href="Lab1-Part1-Team27.css">
+</head>
+<body>
 
-        <link rel="stylesheet" href="Lab1-Part1-Team27.css">
-    </head>
-    <body>
-        <table class="dropdownLeft">
-            <tr>
-                <td>Archive</td>
-            </tr>
-            <tr>
-                <td>Edit</td>
-            </tr>
-            <tr>
-                <td>Delete</td>
-            </tr>
-            <tr>
-                <td>Collection</td>
-            </tr>
-        </table>
-        
-        <table class="dropdownRight">
-            <tr>
-                <td>Laptop</td>
-            </tr>
-            <tr>
-                <td>Tablet</td>
-            </tr>
-            <tr>
-                <td>CellPhone</td>
-            </tr>
-            <tr>
-                <td>Notebook</td>
-            </tr>
-        </table>
+  <h1>Electronics-Center</h1>
 
-        <table>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Year</th>
-                <th>Type</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://webobjects2.cdw.com/is/image/CDW/7075169?wid=784&hei=477&resMode=bilin&fit=fit,1">
-                    <input type="radio">
-                </td>
-                <td>Macbook Pro</td>
-                <td>Apple</td>
-                <td>2022</td>
-                <td>LapTop</td>
-                <td>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                </td>
-            </tr>
+  <div class="top-controls">
+    <select name="action" id="action-list">
+      <option value="0">Archive</option>
+      <option value="1">Edit</option>
+      <option value="2">Delete</option>
+      <option value="3">Collection</option>
+    </select>
 
-            <tr>
-                <td>
-                    <img src="https://m.media-amazon.com/images/I/61-y844vGPL._AC_UF894,1000_QL80_.jpg">
-                    <input type="radio">
-                </td>
-                <td>iPad</td>
-                <td>Apple</td>
-                <td>2022</td>
-                <td>Tablet</td>
-                <td>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                </td>
-            </tr>
+    <input type="text" id="search-box" placeholder="Search or type here..." />
 
-            <tr>
-                <td>
-                    <img src="https://webobjects2.cdw.com/is/image/CDW/7607509?$product-main$">
-                    <input type="radio">
-                </td>
-                <td>iPhone 15 Pro Max </td>
-                <td>Apple</td>
-                <td>2023</td>
-                <td>CellPhone</td>
-                <td>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                    <button type="button">Action</button>
-                </td>
-            </tr>
-        </table>
-    </body>
+    <select name="type" id="type-list">
+      <option value="0">LapTop</option>
+      <option value="1">NoteBook</option>
+      <option value="2">Tablet</option>
+      <option value="3">CellPhone</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 -->
+      <tr>
+        <td>
+          <input type="radio" name="deviceSelect" />
+        </td>
+        <td>
+          <img class="device-img" src="https://images.unsplash.com/photo-1610792516286-524726503fb2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td>Galaxy S21</td>
+        <td>Samsung</td>
+        <td>2021</td>
+        <td>CellPhone</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+        </td>
+      </tr>
+      <!-- Row 2 -->
+      <tr>
+        <td>
+          <input type="radio" name="deviceSelect" />
+        </td>
+        <td>
+            <img class="device-img" src="https://images.unsplash.com/photo-1617780421515-08fae9caa171?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td>Surface Pro</td>
+        <td>Microsoft</td>
+        <td>2020</td>
+        <td>Tablet</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+      </tr>
+      <!-- Row 3 -->
+      <tr>
+        <td>
+          <input type="radio" name="deviceSelect" />
+        </td>
+        <td>
+            <img class="device-img" src="https://images.unsplash.com/photo-1717865499857-ec35ce6e65fa?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td>MacBook Air</td>
+        <td>Apple</td>
+        <td>2022</td>
+        <td>LapTop</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
 </html>
