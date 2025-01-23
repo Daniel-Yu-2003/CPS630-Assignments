@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electronics-Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js"> </script>
+  <script>
+    $(document).ready(function(){
+      $('#form1 input').on('change', function() {
+        var imgsel = $('input[name=img1select]:checked', '#form1').val()
+        if( imgsel == ("0")){
+          $("#img1").fadeIn(1000);
+        } else if( imgsel == ("1")) {
+          $("#img1").fadeOut(1000);
+        }
+      });
+      $('#form2 input').on('change', function() {
+        var imgsel = $('input[name=img2select]:checked', '#form2').val()
+        if( imgsel == ("0")){
+          $("#img2").fadeIn(1000);
+        } else if( imgsel == ("1")) {
+          $("#img2").fadeOut(1000);
+        }
+      });
+      $('#form3 input').on('change', function() {
+        var imgsel = $('input[name=img3select]:checked', '#form3').val()
+        if( imgsel == ("0")){
+          $("#img3").fadeIn(1000);
+        } else if( imgsel == ("1")) {
+          $("#img3").fadeOut(1000);
+        }
+      });
+      $('#form1info input').on('change', function() {
+        var infosel = $('input[name=info1select]:checked', '#form1info').val()
+        if( infosel == ("0")){
+          $(".info1").fadeIn(1000);
+        } else if( infosel == ("1")) {
+          $(".info1").fadeOut(1000);
+        }
+      });
+      $('#form2info input').on('change', function() {
+        var infosel = $('input[name=info2select]:checked', '#form2info').val()
+        if( infosel == ("0")){
+          $(".info2").fadeIn(1000);
+        } else if( infosel == ("1")) {
+          $(".info2").fadeOut(1000);
+        }
+      });
+      $('#form3info input').on('change', function() {
+        var infosel = $('input[name=info3select]:checked', '#form3info').val()
+        if( infosel == ("0")){
+          $(".info3").fadeIn(1000);
+        } else if( infosel == ("1")) {
+          $(".info3").fadeOut(1000);
+        }
+      });
+    });
+  </script> 
+
+  <h1>Electronics-Center</h1>
+
+  <div class="top-controls">
+    <select name="action" id="action-list">
+      <option value="0">Archive</option>
+      <option value="1">Edit</option>
+      <option value="2">Delete</option>
+      <option value="3">Collection</option>
+    </select>
+
+    <input type="text" id="search-box" placeholder="Search or type here..." />
+
+    <select name="type" id="type-list">
+      <option value="0">LapTop</option>
+      <option value="1">NoteBook</option>
+      <option value="2">Tablet</option>
+      <option value="3">CellPhone</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fade In or Fade Out</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 -->
+      <tr>
+        <td>
+          <h3>Image</h3>
+          <form id="form1">
+            <label><input type="radio" name="img1select" value="0"/>Fade In</label>
+            <label><input type="radio" name="img1select" value="1"/>Fade Out</label>
+          </form>
+          <br>
+          <h3>Info</h3>
+          <form id="form1info"> 
+            <label><input type="radio" name="info1select" value="0"/>Fade In</label>
+            <label><input type="radio" name="info1select" value="1"/>Fade Out</label>
+          </form>
+        </td>
+        <td>
+          <img class="device-img" id="img1" src="https://images.unsplash.com/photo-1610792516286-524726503fb2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td class="info1">Galaxy S21</td>
+        <td class="info1">Samsung</td>
+        <td class="info1">2021</td>
+        <td class="info1">CellPhone</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+        </td>
+      </tr>
+      <!-- Row 2 -->
+      <tr>
+        <td>
+          <h3>Image</h3>
+          <form id="form2">
+            <label><input type="radio" name="img2select" value="0"/>Fade In</label>
+            <label><input type="radio" name="img2select" value="1"/>Fade Out</label>
+          </form>
+          <br>
+          <h3>Info</h3>
+          <form id="form2info"> 
+            <label><input type="radio" name="info2select" value="0"/>Fade In</label>
+            <label><input type="radio" name="info2select" value="1"/>Fade Out</label>
+          </form>
+        </td>
+        <td>
+            <img class="device-img" id="img2" src="https://images.unsplash.com/photo-1617780421515-08fae9caa171?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td class="info2">Surface Pro</td>
+        <td class="info2">Microsoft</td>
+        <td class="info2">2020</td>
+        <td class="info2">Tablet</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+      </tr>
+      <!-- Row 3 -->
+      <tr>
+        <td>
+          <h3>Image</h3>
+          <form id="form3">
+            <label><input type="radio" name="img3select" value="0"/>Fade In</label>
+            <label><input type="radio" name="img3select" value="1"/>Fade Out</label>
+          </form>
+          <br>
+          <h3>Info</h3>
+          <form id="form3info"> 
+            <label><input type="radio" name="info3select" value="0"/>Fade In</label>
+            <label><input type="radio" name="info3select" value="1"/>Fade Out</label>
+          </form>
+        </td>
+        <td>
+            <img class="device-img" id="img3" src="https://images.unsplash.com/photo-1717865499857-ec35ce6e65fa?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Device 1" />
+        </td>
+        <td class="info3">MacBook Air</td>
+        <td class="info3">Apple</td>
+        <td class="info3">2022</td>
+        <td class="info3">LapTop</td>
+        <td class="action-buttons">
+            <button><img src="./images/icons/archive_7710767.png" alt="Archive Icon"/>Archive</button>
+            <button><img src="./images/icons/edit_1159633.png" alt="Edit Icon"/>Edit</button>
+            <button><img src="./images/icons/delete.png" alt="Delete Icon"/>Delete</button>
+            <button><img src="./images/icons/book-mark_17819445.png" alt="Collection Icon"/>Collection</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
