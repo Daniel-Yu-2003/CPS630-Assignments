@@ -177,6 +177,23 @@
             }
         });
     })
+
+    $(document).ready(function () {
+        function flattenAndStretchImages() {
+            for (let i = 1; i <= 3; i = i + 1) {
+                if ($("#image" + i).css("display") != "none") {
+                    $("#image" + i).slideUp(250).slideDown(250);
+                }
+            }
+        }
+
+        $("#flattenAndStretchButton").click(function () {
+            flattenAndStretchImages();
+        })
+    })
   </script>
+
+  <button id="flattenAndStretchButton">Flatten And Stretch Images </button>
+  
 </body>
 </html>
