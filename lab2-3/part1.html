@@ -37,9 +37,9 @@
                     </select>
         
                     <h3>Type:</h3>
-                    <select name="type" id="typeSelect" required onchange="toggleSubject()">
+                    <select name="type" id="typeSelect"">
                         <option value="">Select Type</option>
-                        <option>Painting</option>
+                        <option id="painting">Painting</option>
                         <option>Sculpture</option>
                     </select>
         
@@ -82,9 +82,20 @@
                 </form>
             </div>
         </div>
-        
-        
     </div>
+
+<script>
+    $(document).ready(function(){
+        $('#subjectGroup').hide();
+        $('#typeSelect').change(function(){
+            if($("#painting").is(':selected')){
+                $('#subjectGroup').show();
+            } else {
+                $('#subjectGroup').hide();
+            }
+        })
+})
+</script>
 
 </body>
 </html>
