@@ -4,7 +4,7 @@ Lab 2-3: Step by Step to run the program
   2. Start Apache & MySQL from XAMPP Control PaneL
   3. Open browser → Go to http://localhost/phpmyadmin/
   4. Click on Databases → Create new database (give it a database name).
-  5. Create artwork Table in testnew Run this SQL query inside phpMyAdmin → SQL Tab
+  5. Create artwork Table and Run this SQL query inside phpMyAdmin → SQL Tab
 
      CREATE TABLE artwork (
               id INT AUTO_INCREMENT PRIMARY KEY,
