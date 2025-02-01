@@ -7,6 +7,10 @@
         $password = "";
         $dbname = "testnew";
 
+
+        // Need to create database first before connecting
+        //
+
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
 
