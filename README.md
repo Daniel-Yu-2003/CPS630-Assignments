@@ -18,4 +18,4 @@ Lab 2-3: Step by Step to run the program
      
   7. Put all the files in the folder (Lab2-3)  inside htdocs (C:\xampp\htdocs\artwork) at your local computer
   8. After that, open http://localhost/artwork/artwork.php in your browser
-  9. Done 
+  9. Done - Test the program
