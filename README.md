@@ -22,8 +22,8 @@ Lab 2-3: Step by Step to run the program
 
 
 
-Lab 4:
-## Requirements:
+
+## Lab 4 - Requirements:
 - **XAMPP** (or any local PHP server)
 - A modern **web browser** (Chrome, Firefox, Edge, Brave, etc.)
 
