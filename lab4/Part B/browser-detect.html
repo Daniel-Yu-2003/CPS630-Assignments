@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Detection with JavaScript</title>
+</head>
+<body>
+    <h1>Browser Detection</h1>
+    <p>Browser information will be displayed below:</p>
+    <div id="browser-info"></div>
+
+    <script>
+        function detectBrowser() {
+            var userAgent = navigator.userAgent;  // Get the user agent string
+            var browserInfo = "User-Agent: " + userAgent + "<br><br>";
+
+            // Detect Brave Browser
+            if (userAgent.indexOf("Brave") !== -1) {
+                browserInfo += "Browser: Brave";
+            }
+            // Detect Google Chrome (but not Edge or Brave)
+            else if (userAgent.indexOf("Chrome") !== -1 && userAgent.indexOf("Edg") === -1) {
+                browserInfo += "Browser: Google Chrome";
+            }
+            // Detect Microsoft Edge
+            else if (userAgent.indexOf("Edg") !== -1) {
+                browserInfo += "Browser: Microsoft Edge";
+            }
+            // Detect Firefox
+            else if (userAgent.indexOf("Firefox") !== -1) {
+                browserInfo += "Browser: Firefox";
+            }
+            // Detect Internet Explorer
+            else if (userAgent.indexOf("Trident") !== -1 || userAgent.indexOf("MSIE") !== -1) {
+                browserInfo += "Browser: Internet Explorer";
+            }
+            // Default if no known browser is detected
+            else {
+                browserInfo += "Browser: Unknown";
+            }
+
+            // Display the browser information in the div
+            document.getElementById("browser-info").innerHTML = browserInfo;
+        }
+
+        // Call the function to run the browser detection
+        detectBrowser();
+    </script>
+</body>
+</html>
