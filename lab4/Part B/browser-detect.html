@@ -16,7 +16,7 @@
             var browserInfo = "User-Agent: " + userAgent + "<br><br>";
 
             // Detect Brave Browser
-            if (userAgent.indexOf("Brave") !== -1) {
+            if (navigator.brave) {
                 browserInfo += "Browser: Brave";
             }
             // Detect Google Chrome (but not Edge or Brave)
