@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh; /* Full screen height */
+        }
+
+        /* Fixed header */
+        .header {
+            background-color: hsl(0, 0%, 25%);
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .header a {
+            position: absolute;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Centering the about-container */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Vertically centers the content */
+            gap: 40px;
+            max-width: 900px;
+            width: 100%;
+            min-height: calc(100vh - 160px); /* Adjusted to keep space for header (60px) and footer (50px) */
+            padding: 100px 20px 60px; /* Prevents overlap from header */
+            text-align: center;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .team-member .contact {
+            font-size: 14px;
+            color: #f44336;
+        }
+
+        /* Sticky footer */
+        .footer {
+            background-color: #424141;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="./index.html" class="home-link">Home</a> 
+        <p>About Us</p>
+    </div>
+
+    <div class="about-container">
+        <!-- Team Member 1 -->
+        <div class="team-member">
+            <img src="team-member1.jpg" alt="Team Member 1"> 
+            <h3>Phat Nguyen</h3>
+            <p>Currently 4th-year student at TMU. Loving swimming and playing music instruments.</p>
+            <p class="contact">Email: phat.nguyen@torontomu.ca</p> 
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <img src="team-member2.jpg" alt="Team Member 2">
+            <h3>Member Name 2</h3>
+            <p>A brief bio about Member 2. This could include professional background, interests, or role in the team.</p>
+            <p class="contact">Email: member2@example.com</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member">
+            <img src="team-member3.jpg" alt="Team Member 3">
+            <h3>Member Name 3</h3>
+            <p>A brief bio about Member 3. This could include professional background, interests, or role in the team.</p>
+            <p class="contact">Email: member3@example.com</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 FootEase | <a href="/contact">Contact Us</a></p>
+    </div>
+
+</body>
+</html>
