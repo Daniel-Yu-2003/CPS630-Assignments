@@ -22,6 +22,7 @@ nav a:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 40px 20px;
+    margin-left:50px;
 }
 .product {
     padding: 20px;
@@ -36,23 +37,20 @@ nav a:hover {
 }
 
 #cart-title{
-    width:300px;
-    text-align:center;
     padding: 30px;
     
 }
 
 #cart {
-    right: 100px;
-    top: 150px;
-    position: fixed;
     border: 1px solid black;
     flex-direction: column;
+    overflow: auto;
+    margin:20px;
     width:300px;
     height:600px;
-    display: flex;
-    overflow: auto;
-    text-align:center;
+    top:10%;
+    right:5%;
+    position:fixed;
 }
 
 .cart-item img{
