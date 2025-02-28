@@ -16,7 +16,7 @@
         </nav>
         <div class="container">
             <h2>Sign In</h2>
-            <form action="#" method="POST">
+            <form action="#" method="POST" id="signIn">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Enter your email" required>
 
@@ -27,6 +27,27 @@
             </form>
             <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
         </div>
-    
+        
+        <script>
+            document.getElementById("signIn").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+
+                let userList = JSON.parse(localStorage.getItem("userList")) || [];
+
+                console.log(userList)
+
+                if (userList.email === email && userList.password === password) {
+                    alert("Successful Login");
+                    window.location.href = "home.html"
+                }
+
+                else {
+                    alert("Incorrect Username And/Or Password");
+                }
+            })
+        </script>
     </body>
 </html>
