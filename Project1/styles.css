@@ -84,7 +84,9 @@ body{
 
 }
 
-.aboutUsImage {
-    width: 20%;
-    height: 20%;
+
+nav a.active {
+    font-weight: bold;
+    color: #ff6600; 
+    border-bottom: 2px solid #ff6600; 
 }
