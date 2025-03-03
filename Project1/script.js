@@ -88,11 +88,6 @@ const toggleCart = () => {
     cart.classList.toggle("open");
 }
 
-function reviewInvoice(){
-    localStorage.setItem('cart', JSON.stringify(cart));
-    window.location.replace("cart.html")
-}
-
 function displayInvoiceSummary(){
     const cart = JSON.parse(localStorage.getItem('cart'));
     const cartSummary = document.getElementById('cart-items');
@@ -119,6 +114,11 @@ if (document.body.contains(document.getElementById('subtotal-invoice'))) {
     displayInvoiceSummary();
 }
 
-function submitPayment(){
-    window.location.replace("checkout.html")
+function toInvoice(){
+    window.location.replace("invoice.html")
+}
+
+function toDestination(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.replace("map.html")
 }
