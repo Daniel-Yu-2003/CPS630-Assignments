@@ -53,3 +53,7 @@ Lab 2-3: Step by Step to run the program
    
 2. **Test the Detection**:
    - The browser detection results will be displayed directly on the page.
+
+
+## Lab 5 - Requirements:
+- Please run the code locally.

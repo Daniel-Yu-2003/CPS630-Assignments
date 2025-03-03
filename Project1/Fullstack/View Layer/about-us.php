@@ -79,7 +79,7 @@ session_start();
                 <a href="../Controller Layer/register.php">Sign Up</a>
             <?php endif; ?>
             <a href="./review.php">Reviews</a>
-            <a href="#services">Types of Services</a>
+            <a href="#services">Services</a>
         </nav>
     </div>
     <div class="about-container">
@@ -104,7 +104,9 @@ session_start();
             <p class="contact">Email: member3@example.com</p>
         </div>
     </div>
-
-  
+    <footer style="background-color:#333; color:white; text-align:center; padding:30px; bottom:0; width:100%;">
+        <div id="browser-info"></div>    
+    </footer>
 </body>
+<script src="../../browserDetect.js"></script>
 </html>

@@ -65,7 +65,7 @@ session_start();
                 <a href="../Controller Layer/register.php">Sign Up</a>
             <?php endif; ?>
             <a href="./review.php" class="active">Reviews</a>
-            <a href="#services">Types of Services</a>
+            <a href="#services">Services</a>
         </nav>
     </div>
     
@@ -107,6 +107,12 @@ session_start();
             </div>
         </div>
     <?php endif; ?>
+    
+    
+    <footer style="background-color:#333; color:white; text-align:center; padding:30px; bottom:0; width:100%;">
+        <div id="browser-info"></div>    
+    </footer>
+    
 
     <script>
         const reviews = document.getElementById('reviews-container');
@@ -152,5 +158,7 @@ session_start();
         
         
     </script>
+
+    <script src="../../browserDetect.js"></script>
 </body>
 </html>

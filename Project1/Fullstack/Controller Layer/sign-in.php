@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="./sign-in.php" class="active">Sign In</a>
                 <a href="./register.php">Sign Up</a>
                 <a href="../View Layer/review.php">Reviews</a>
-                <a href="#services">Types of Services</a>
+                <a href="#services">Services</a>
             </nav>
         </div>
         <div class="container">
@@ -143,10 +143,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit">Sign In</button>
             
                     <div class="footer">
-                        <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+                        <p>Don't have an account? <a href="./register.php">Sign Up</a></p>
                     </div>
                 </form>
             </div>
         </div>
+        <footer style="background-color:#333; color:white; text-align:center; padding:30px; bottom:0; width:100%;">
+            <div id="browser-info"></div>    
+        </footer>
     </body>
+    <script src="../../browserDetect.js"></script>
 </html>

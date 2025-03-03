@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="./sign-in.php">Sign In</a>
                 <a href="./register.php" class="active">Sign Up</a>
                 <a href="../View Layer/review.php">Reviews</a>
-                <a href="#services">Types of Services</a>
+                <a href="#services">Services</a>
             </nav>
         </div>
         <div class="container">
@@ -164,10 +164,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php endif; ?>
             
                     <div class="footer">
-                        <a href="./index.html">Already have an account? Login</a>
+                        <a href="./sign-in.php">Already have an account? Login</a>
                     </div>
                 </form>
             </div>
         </div>
+        <footer style="background-color:#333; color:white; text-align:center; padding:30px; bottom:0; width:100%;">
+            <div id="browser-info"></div>    
+        </footer>
     </body>
+    <script src="../../browserDetect.js"></script>
 </html>

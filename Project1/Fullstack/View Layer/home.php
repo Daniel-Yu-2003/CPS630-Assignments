@@ -8,9 +8,15 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../../styles.css">     
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <style>
+            .disabled-cart {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+        </style>
     </head>
-    <body>
+    <body style="min-height: 100vh; margin: 0; display: flex; justify-content: space-between; flex-direction: column;">
         <div id="nav-container">
             <h2 id="logo">Electro</h2>
             <nav>
@@ -24,11 +30,11 @@ session_start();
                     <a href="../Controller Layer/register.php">Sign Up</a>
                 <?php endif; ?>
                 <a href="./review.php">Reviews</a>
-                <a href="#services">Types of Services</a>
+                <a href="#services">Services</a>
             </nav>
         </div>
         <div class="name" style="margin-top: 25px;">
-            <h1>Popular Products</h1>
+            <h1 style="margin: 0;">Popular Products</h1>
         </div>
 
         <div class="shopping-container">
@@ -59,15 +65,14 @@ session_start();
                     <p>$440.00</p>
                 </div>
             </div>
-            <div id="cart-button" onclick="toggleCart()" <?php if (!isset($_SESSION['user_id'])) echo 'style="pointer-events: none; opacity: 0.5;"'; ?>>
+            <div style="bottom: 8.5%; right: 20px;" id="cart-button" onclick="toggleCart()" class="<?php echo isset($_SESSION['user_id']) ? '' : 'disabled-cart'; ?>" >
                 🛒 Cart
             </div>
 
-            <div id="cart-container">
+            <div id="cart-container" style="max-height: 70%; overflow-y: auto; border: 1px solid #ccc;">
                 <h3 id="cart-title">Shopping Cart</h3>
-                
                 <!-- Cart Table -->
-                <table id="cartcontent">
+                <table id="cartcontent" style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -79,7 +84,7 @@ session_start();
                 </table>
                 
                 <h4 id="subtotal">Subtotal: $0</h4>
-                <button id="checkout-btn" onclick="reviewInvoice()">Review</button>
+                <button id="checkout-btn" onclick="reviewInvoice()">Checkout</button>
                  <!-- <a href="cart.html" id="checkout-btn">Checkout</a> -->
                 <h5>Click on an item to remove</h5>
                 <div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -87,6 +92,10 @@ session_start();
                 </div> 
             </div>        
         </div>
-        <script src="../../script.js"></script>
+        <footer style="position: relative; background-color:#333; color:white; text-align:center; padding:30px; bottom:0; width:100%;">
+            <div id="browser-info"></div>    
+        </footer>
     </body>
+    <script src="../../script.js"></script>
+    <script src="../../browserDetect.js"></script>
 </html>

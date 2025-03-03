@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+
 #nav-container {
     display: flex;
     justify-content: space-around;
@@ -140,7 +141,7 @@ button:hover {
 
 #cartcontent {
     width: 100%;
-    height: calc(80% - 130px); /* Dynamic height for the scrollable content */
+    height: calc(70% - 130px); /* Dynamic height for the scrollable content */
     overflow-y: auto; /* Allows scrolling */
     border-collapse: collapse;
     margin-top: 10px;
@@ -170,8 +171,6 @@ button:hover {
 
 #cart-button {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
     background-color: #ff6600;
     color: white;
     padding: 10px 15px;
