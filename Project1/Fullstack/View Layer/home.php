@@ -84,8 +84,7 @@ session_start();
                 </table>
                 
                 <h4 id="subtotal">Subtotal: $0</h4>
-                <button id="checkout-btn" onclick="reviewInvoice()">Checkout</button>
-                 <!-- <a href="cart.html" id="checkout-btn">Checkout</a> -->
+                <button id="checkout-btn" onclick="toMap()">Proceed to Delivery</button>
                 <h5>Click on an item to remove</h5>
                 <div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <p>Drop items here</p>
@@ -98,4 +97,10 @@ session_start();
     </body>
     <script src="../../script.js"></script>
     <script src="../../browserDetect.js"></script>
+    <script>
+        function toMap(){
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.replace("../../map.html")
+        }
+    </script>
 </html>
