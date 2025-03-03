@@ -8,6 +8,10 @@
     </head>
     <body>
         <h1>Invoice Summary</h1>
+        <div>
+            <h6 id="name"></h6>
+            <h6 id="address"></h6>
+        </div>        
         <table id="cartcontent">
             <thead>
                 <tr>
@@ -24,7 +28,16 @@
         <h3 id="total-invoice"></h3>
         
         <a href="checkout.html">Confirm Payment</a><br>
-        <a href="home.html">Return to home</a>
+        <a href="payment.html">Return to payment</a>
         <script src="script.js"></script>
+        <script>
+            const address = localStorage.getItem('address');
+            const name = localStorage.getItem('custName')
+            const number = localStorage.getItem('cardNum')
+            const expDate = localStorage.getItem('expDate')
+            const cvv = localStorage.getItem('cvv')
+            document.getElementById("address").innerHTML = address;
+            document.getElementById("name").innerHTML =  name;
+        </script>
     </body>
 </html>

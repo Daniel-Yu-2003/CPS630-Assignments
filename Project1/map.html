@@ -14,10 +14,12 @@
     </head>
     <body>
         <h1>Select Destination</h1>
-        <h4>Click on Map to select a destination</h4>>
+        <h4>Click on Map to select a destination</h4>
         <div id="map" style="height:700px; width:1200px; display: block; margin-left: auto; margin-right: auto;"></div>
         <h4 id="destination"></h4>
-        <button onclick="toPayment()" id="confirmDest" style="display:none">Continue to Payment</button>
+        <button onclick="toPayment()" id="confirmDest" style="display:none">Continue to Payment</button><br>
+        <a href="home.html">Return to home</a>
+
         <script>
                         var map = L.map('map').setView([43.6578, -79.3786], 15);
             L.marker([43.6578, -79.3786]).addTo(map).bindPopup('Main Store');;
