@@ -1,24 +1,33 @@
+<?php
+session_start();
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">     
+        <link rel="stylesheet" type="text/css" href="../../styles.css">     
     </head>
     <body>
         <div id="nav-container">
             <h2 id="logo">Electro</h2>
             <nav>
-                <a href="./home.html" class="active">Home</a>
-                <a href="./about-us.html">About Us</a>
-                <a href="./sign-up.html">Sign Up</a>
-                <a href="./sign-in.html">Sign In</a>
-                <a href="./review.html">Reviews</a>
+                <a href="./home.php" class="active">Home</a>
+                <a href="./about-us.php">About Us</a>
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <a href="profile.php">Profile</a>
+                    <a href="./logout.php">Log Out</a>
+                <?php else: ?>
+                    <a href="../Controller Layer/sign-in.php">Sign In</a>
+                    <a href="../Controller Layer/register.php">Sign Up</a>
+                <?php endif; ?>
+                <a href="./review.php">Reviews</a>
                 <a href="#services">Types of Services</a>
             </nav>
         </div>
-        <div class="name">
+        <div class="name" style="margin-top: 25px;">
             <h1>Popular Products</h1>
         </div>
 
@@ -50,9 +59,10 @@
                     <p>$440.00</p>
                 </div>
             </div>
-            <div id="cart-button" onclick="toggleCart()">
+            <div id="cart-button" onclick="toggleCart()" <?php if (!isset($_SESSION['user_id'])) echo 'style="pointer-events: none; opacity: 0.5;"'; ?>>
                 🛒 Cart
             </div>
+
             <div id="cart-container">
                 <h3 id="cart-title">Shopping Cart</h3>
                 
@@ -69,7 +79,7 @@
                 </table>
                 
                 <h4 id="subtotal">Subtotal: $0</h4>
-                <button id="checkout-btn" onclick="toDestination()">Proceed to delivery</button>
+                <button id="checkout-btn" onclick="reviewInvoice()">Review</button>
                  <!-- <a href="cart.html" id="checkout-btn">Checkout</a> -->
                 <h5>Click on an item to remove</h5>
                 <div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -77,6 +87,6 @@
                 </div> 
             </div>        
         </div>
-        <script src="script.js"></script>
+        <script src="../../script.js"></script>
     </body>
 </html>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles.css">
     <style>
         .container {
             max-width: 700px;
@@ -51,42 +55,58 @@
     <div id="nav-container">
         <h2 id="logo">Electro</h2>
         <nav>
-            <a href="./home.html">Home</a>
-            <a href="./about-us.html">About Us</a>
-            <a href="./sign-up.html">Sign Up</a>
-            <a href="./sign-in.html">Sign In</a>
-            <a href="./review.html" class="active">Reviews</a>
+            <a href="./home.php">Home</a>
+            <a href="./about-us.php">About Us</a>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <a href="profile.php">Profile</a>
+                <a href="./logout.php">Log Out</a>
+            <?php else: ?>
+                <a href="../Controller Layer/sign-in.php">Sign In</a>
+                <a href="../Controller Layer/register.php">Sign Up</a>
+            <?php endif; ?>
+            <a href="./review.php" class="active">Reviews</a>
             <a href="#services">Types of Services</a>
         </nav>
     </div>
+    
+    <?php if(isset($_SESSION['user_id'])): ?>
+        <div class="container mt-4">
+            <h2 class="text-center">Product Reviews</h2>
+            <div id="reviews-container"></div>
+            <div class="mt-5">
+                <h4>Add a Review</h4>
+                <select id="product-select" class="form-control">
+                    <option value="iPhone 15">iPhone 15</option>
+                    <option value="MacBook Air">MacBook Air</option>
+                    <option value="Samsung Galaxy A06">Samsung Galaxy A06</option>
+                    <option value="Apple Watch SE">Apple Watch SE</option>
+                    <option value="Apple iPad">Apple iPad</option>
+                </select>
 
-    <div class="container mt-4">
-        <h2 class="text-center">Product Reviews</h2>
-        <div id="reviews-container"></div>
-        <div class="mt-5">
-            <h4>Add a Review</h4>
-            <select id="product-select" class="form-control">
-                <option value="iPhone 15">iPhone 15</option>
-                <option value="MacBook Air">MacBook Air</option>
-                <option value="Samsung Galaxy A06">Samsung Galaxy A06</option>
-                <option value="Apple Watch SE">Apple Watch SE</option>
-                <option value="Apple iPad">Apple iPad</option>
-            </select>
+                <textarea id="review-text" class="form-control mt-2" placeholder="Write your review..." required></textarea>
 
-            <textarea id="review-text" class="form-control mt-2" placeholder="Write your review..." required></textarea>
+                <label class="mt-2">Rating:</label>
+                <select id="review-rating" class="form-control">
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="1">⭐</option>
+                </select>
 
-            <label class="mt-2">Rating:</label>
-            <select id="review-rating" class="form-control">
-                <option value="5">⭐⭐⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="1">⭐</option>
-            </select>
-
-            <button class="btn btn-primary mt-3" onclick="addReview()">Submit Review</button>
+                <button class="btn btn-primary mt-3" onclick="addReview()">Submit Review</button>
+            </div>
         </div>
-    </div>
+    <?php else: ?>
+        <div class="container mt-4">
+            <h2 class="text-center">Product Reviews</h2>
+            <div id="reviews-container"></div>
+            <div class="mt-5">
+                <h4>Add a Review</h4>
+                <p>You must be signed in to add a review.</p>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <script>
         const reviews = document.getElementById('reviews-container');
