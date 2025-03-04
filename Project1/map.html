@@ -50,7 +50,7 @@
                 geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom())).then(function(results) {
                     destination = results[0].name;
                     var dest = document.getElementById("destination");
-                    dest.innerHTML = "Destionation: " + destination;
+                    dest.innerHTML = "Destination: " + destination;
                 })
                 document.getElementById("confirmDest").style.display = "inline"
             }
