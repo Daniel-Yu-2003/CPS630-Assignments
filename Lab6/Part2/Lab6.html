@@ -1,51 +1,103 @@
-<html ng-app="myApp" >
-  <head>
-    <title>Lab 6</title>
-    <script src="https://code.angularjs.org/1.5.0/angular.min.js" ></script>
-  </head>
-  <body ng-controller="myController">
-   
-      <div id="search">
-        Country or Capital Search:
-        <input type="text" ng-model="search" />
-      </div>
-      <table>
-        <tr>
-          <th>
-            <a href="" ng-click="sortField='name';reverse=!reverse">Country</a>
-          </th>
-          <th>
-            <a href="" ng-click="sortField='population'; reverse=!reverse">Population</a>
-          </th>
-          <th>
-              <a href="" ng-click="sortField='capital'; reverse=!reverse">Capital</a>
-          </th>
-        </tr>
-        <tr  ng-repeat="country in countries | filter: search |
-                        orderBy:sortField:reverse">
-            <td>{{country.name.common}}</td>
-            <td>{{country.population | number}}</td>
-            <td>{{country.capital[0]}}</td>
-        </tr>
-      </table>
-      <script>
-        var app = angular.module('myApp', []);
-  
-        app.controller('myController', function ($scope, $http) {
-          $scope.search = "bel";
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Population Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            cursor: pointer;
+        }
+        .loading {
+            font-weight: bold;
+            color: blue;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-controller="CountryController">
 
-          var url = 'https://restcountries.com/v3.1/all';
-          $http.get(url)
-            .then(function (response) {
-                $scope.countries = response.data;
-                console.log($scope.countries);
-            });
-          
-          $scope.sortField = 'name';
-          $scope.reverse = false;
-          
+    <h2>Country or Capital Search:</h2>
+    <input type="text" ng-model="searchText" placeholder="Search by country or capital">
+
+    <p class="loading" ng-show="loading">Loading data...</p>
+    <p class="error" ng-show="errorMessage">{{ errorMessage }}</p>
+
+    <table ng-show="countries.length">
+        <thead>
+            <tr>
+                <th ng-click="sortBy('name')">Country &#x2193;&#x2191;</th>
+                <th ng-click="sortBy('population')">Population &#x2193;&#x2191;</th>
+                <th>Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="country in countries | filter: searchFilter | orderBy:sortColumn:reverseSort">
+                <td>{{ country.name }}</td>
+                <td>{{ country.population | number }}</td>
+                <td>{{ country.capital }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("CountryController", function($scope, $http) {
+            $scope.countries = [];
+            $scope.loading = true;
+            $scope.errorMessage = "";
+            $scope.sortColumn = "name";
+            $scope.reverseSort = false;
+
+            // Custom filter to allow searching by country name or capital
+            $scope.searchFilter = function(country) {
+                if (!$scope.searchText) return true;
+                var keyword = $scope.searchText.toLowerCase();
+                return country.name.toLowerCase().includes(keyword) || 
+                       country.capital.toLowerCase().includes(keyword);
+            };
+
+            // Sorting function
+            $scope.sortBy = function(column) {
+                if ($scope.sortColumn === column) {
+                    $scope.reverseSort = !$scope.reverseSort;
+                } else {
+                    $scope.sortColumn = column;
+                    $scope.reverseSort = false;
+                }
+            };
+
+            // Fetch country data from API
+            $http.get("https://restcountries.com/v3.1/all")
+                .then(function(response) {
+                    $scope.countries = response.data.map(function(country) {
+                        return {
+                            name: country.name.common,
+                            population: country.population || 0,
+                            capital: country.capital ? country.capital[0] : "N/A"
+                        };
+                    });
+                    $scope.loading = false;
+                }, function(error) {
+                    $scope.errorMessage = "Error loading country data. Please try again later.";
+                    $scope.loading = false;
+                });
         });
-      </script>
-  </body>
+    </script>
+
+</body>
 </html>
-    
