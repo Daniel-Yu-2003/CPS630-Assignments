@@ -8,7 +8,16 @@
     </head>
     <body>
         <h1>Payment Information</h1>
-        <form id="paymentForm">
+        <form id="paymentSelector">
+            <h4>Choose payment option</h4>
+            <input type="radio" value="visa" name="paymentCheck">
+            <label for="visa">Visa</label>
+            <input type="radio" value="mastercard" name="paymentCheck">
+            <label for="mastercard">Mastercard</label>
+            <input type="radio" value="gift-card" name="paymentCheck">
+            <label for="gift-card">Gift Card</label>
+        </form>
+        <form id="paymentForm" style="display:none">
             <div>
                 <label for="name">Name on Card:</label>
                 <input type="text" id="name" required>
@@ -27,7 +36,17 @@
             </div>
             <button type="submit">Review Invoice</button>
         </form>
+
+        <form id="gift-card-form" style="display:none">
+            <div>
+                <label for="number">Card Number:</label>
+                <input type="text" id="number">
+            </div>
+            <button type="submit">Review Invoice</button>
+        </form>
+
         <a href="map.html">Go back to choosing destination</a>
+        
         <script>
             document.getElementById("paymentForm").addEventListener("submit", function(e){
                 e.preventDefault();
@@ -35,6 +54,29 @@
                 localStorage.setItem('custName', name);
                 window.location.replace("Fullstack/View Layer/invoice.php");
             })
+            document.getElementById("gift-card-form").addEventListener("submit", function(e){
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                localStorage.setItem('custName', name);
+                window.location.replace("Fullstack/View Layer/invoice.php");
+            })
+
+            function radioChange(event) {
+                if(event.target.value == "gift-card"){
+                    document.getElementById("gift-card-form").style.display = "block";
+                    document.getElementById("paymentForm").style.display = "none";
+                } else {
+                    document.getElementById("paymentForm").style.display = "block";
+                    document.getElementById("gift-card-form").style.display = "none";
+                }
+            }
+
+            window.onload = function() {
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(button => {
+                button.addEventListener('change', radioChange);
+            });
+            };
         </script>
     </body>
 </html>
