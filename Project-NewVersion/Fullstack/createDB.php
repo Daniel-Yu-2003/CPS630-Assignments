@@ -41,7 +41,8 @@ $sql = "CREATE TABLE Users (
     address TEXT,
     phone VARCHAR(15),
     balance DECIMAL(10, 2) DEFAULT 0.00,
-    city_code INT
+    city_code INT,
+    mode ENUM('Admin, 'User') NOT NULL DEFAULT 'User'
 )";
 if ($conn->query($sql)) {
     echo "Users Table created successfully<br>";
