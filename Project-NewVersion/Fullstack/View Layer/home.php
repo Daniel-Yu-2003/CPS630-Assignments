@@ -7,6 +7,17 @@ if (isset($_GET['message'])) {
     echo "<script>alert('" . $_GET['message'] . "'); window.location.href = '$redirect_url';</script>";
     exit();
 }
+
+$mode = "user";
+if(isset($_SESSION['user_id'])){
+    $userId = $_SESSION["user_id"];
+    $query = $conn->prepare("SELECT mode FROM Users WHERE user_id = ?");
+    $query->bind_param("i", $userId);
+    $query->execute();
+    $query->bind_result($mode);
+    $query->fetch();
+    $query->close();
+    }
 ?>
 
 <html>
@@ -40,7 +51,7 @@ if (isset($_GET['message'])) {
                 <a href="#services">Services</a>
 
                 <!-- Show CRUD link at the end only if user is logged in -->
-                <?php if(isset($_SESSION['user_id'])): ?>
+                <?php if(isset($_SESSION['user_id']) && $mode === 'admin'):?>
                     <a href="../Controller Layer/CRUD.php">
                         <img style="width: 25px; vertical-align: middle;" src="../../Images/database_15458462.png" alt="Database Icon" />
                     </a>

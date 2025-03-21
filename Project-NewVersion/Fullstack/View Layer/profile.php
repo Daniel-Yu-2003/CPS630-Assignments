@@ -8,10 +8,10 @@ if (!isset($_SESSION["user_id"])) {
 }
 
 $userId = $_SESSION["user_id"];
-$query = $conn->prepare("SELECT name, email, address, phone, balance, city_code FROM Users WHERE user_id = ?");
+$query = $conn->prepare("SELECT name, email, address, phone, balance, city_code, mode FROM Users WHERE user_id = ?");
 $query->bind_param("i", $userId);
 $query->execute();
-$query->bind_result($name, $email, $address, $phone, $balance, $cityCode);
+$query->bind_result($name, $email, $address, $phone, $balance, $cityCode, $mode);
 
 if (!$query->fetch()) {
     echo "Error Retrieving Data";
@@ -80,6 +80,7 @@ $conn->close();
         .delete-button:hover {
             background-color: #b02a37;
         }
+
         footer {
             background-color: #333;
             color: white;
@@ -104,7 +105,7 @@ $conn->close();
             <?php endif; ?>
             <a href="./review.php">Reviews</a>
             <a href="#services">Services</a>
-            <?php if(isset($_SESSION['user_id'])): ?>
+            <?php if(isset($_SESSION['user_id']) && $mode === 'admin'): ?>
                 <a href="../Controller Layer/CRUD.php">
                     <img style="width: 25px; vertical-align: middle;" src="../../Images/database_15458462.png" alt="Database Icon" />
                 </a>
@@ -121,9 +122,16 @@ $conn->close();
             <p><strong>Phone:</strong> <?php echo $phone; ?></p>
             <p><strong>Balance:</strong> $<?php echo number_format($balance, 2); ?></p>
             <p><strong>City Code:</strong> <?php echo $cityCode; ?></p> 
+            <p><strong>User Mode:</strong> <?php echo $mode; ?></p> 
             <button class="delete-button" onclick="confirmDelete()">Delete My Account</button>
         </div>
     </div>
+
+    <form id="modeForm" method="POST" action="mode_change.php">
+        <input type="hidden" name="mode" id="mode">
+        <button type="button" onclick="setMode('admin')">Admin Mode</button>
+        <button type="button" onclick="setMode('user')">User Mode</button>
+    </form>
 
     <footer>
         <div id="browser-info"></div>    
@@ -135,6 +143,11 @@ $conn->close();
             if (confirmation) {
                 window.location.href = "../Controller Layer/delete_account.php";
             }
+        }
+
+        function setMode(mode){
+            document.getElementById('mode').value = mode;
+            document.querySelector('form').submit()
         }
     </script>
 </body>
