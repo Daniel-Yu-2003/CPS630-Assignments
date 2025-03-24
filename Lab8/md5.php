@@ -5,7 +5,7 @@ function insertUser($username,$password){
     $sql = "INSERT INTO Users(Username,Password) 
             VALUES(?,?)";
     $smt = $pdo->prepare($sql);
-    $smt->execute(array($username,md5($password))); //execute the query
+    $smt->execute(array($username, custom_md5($password))); //execute the query
 }
 
 function validateUser($username,$password){
@@ -13,12 +13,23 @@ function validateUser($username,$password){
     $sql = "SELECT UserID FROM Users WHERE Username=? AND
           Password=?";
     $smt = $pdo->prepare($sql);
-    $smt->execute(array($username, md5($password))); //execute the query
+    $smt->execute(array($username, custom_md5($password))); //execute the query
     if($smt->rowCount()){
       return true; //record found, return true.
     }
     return false; //record not found matching credentials, return false
   }
+
+function custom_md5($password) {
+    $a = $password;
+    while (strlen($a) < 32) {
+        $a .= strrev($a);
+    }
+    
+    $b = substr(bin2hex($a), 0, 32);
+
+    return ($b);
+}
 
 if (isset($_POST['logout'])) {
     session_destroy();
